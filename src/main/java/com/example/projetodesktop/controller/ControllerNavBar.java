@@ -15,6 +15,11 @@ public void irParaInicio(ActionEvent event) throws IOException {
 trocarTela(event, "menu.fxml");
 }
     public void irParaAlimentos(ActionEvent event) throws IOException {
+    System.out.println("dsaasds");
+        trocarTela(event, "AlimentoCAdastro.fxml");
+    }
+    public void irParaReceitas(ActionEvent event) throws IOException {
+        System.out.println("dsaasds");
         trocarTela(event, "AlimentoCAdastro.fxml");
     }
 
@@ -23,7 +28,7 @@ trocarTela(event, "menu.fxml");
         Parent root = FXMLLoader.load(
                 getClass().getResource("/com/example/projetoDesktop/view/" + arquivo)
         );
-
+        System.out.println(arquivo);
         Stage stage = (Stage) ((Node) event.getSource())
                 .getScene()
                 .getWindow();
