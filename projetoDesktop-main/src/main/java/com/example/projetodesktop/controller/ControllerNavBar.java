@@ -15,12 +15,10 @@ public void irParaInicio(ActionEvent event) throws IOException {
 trocarTela(event, "menu.fxml");
 }
     public void irParaAlimentos(ActionEvent event) throws IOException {
-    System.out.println("dsaasds");
         trocarTela(event, "AlimentoCAdastro.fxml");
     }
-    public void irParaReceitas(ActionEvent event) throws IOException {
-        System.out.println("dsaasds");
-        trocarTela(event, "AlimentoCAdastro.fxml");
+    public void irParaPerguntas(ActionEvent event) throws IOException {
+        trocarTela(event, "RegistroPergunta.fxml");
     }
 
     private void trocarTela(ActionEvent event, String arquivo) throws IOException {
