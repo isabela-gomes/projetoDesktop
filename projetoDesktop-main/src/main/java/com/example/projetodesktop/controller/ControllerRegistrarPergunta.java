@@ -22,7 +22,7 @@ public class ControllerRegistrarPergunta {
     @FXML
     private Button btncancelar;
     @FXML
-    private Button btnvoltar;
+    private Button btnvoltar
 
 
     public void limpar() {
