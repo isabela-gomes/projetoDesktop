@@ -51,4 +51,4 @@ public class ControllerReceitas {
         alert.showAndWait();
     }
 }
-}
+

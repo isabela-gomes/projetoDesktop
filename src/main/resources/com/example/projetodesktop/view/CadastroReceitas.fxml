@@ -15,15 +15,15 @@
             <Font size="21.0" />
          </font>
       </Text>
-      <TextField fx:id="txtReceita" layoutX="314.0" layoutY="76.0" prefHeight="135.0" prefWidth="248.0" />
-      <TextField fx:id="txtAlergicos" layoutX="314.0" layoutY="223.0" prefHeight="25.0" prefWidth="248.0" />
+      <TextField fx:id="txtReceita" layoutX="314.0" layoutY="120.0" prefHeight="91.0" prefWidth="248.0" />
+      <TextField fx:id="txtAlergicos" layoutX="314.0" layoutY="233.0" prefHeight="25.0" prefWidth="248.0" />
       <TextField fx:id="txtTabelaNutricional" layoutX="314.0" layoutY="274.0" prefHeight="25.0" prefWidth="248.0" />
-      <Text layoutX="107.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Receita">
+      <Text layoutX="107.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Receita">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text layoutX="108.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alérgicos">
+      <Text layoutX="108.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alérgicos">
          <font>
             <Font size="15.0" />
          </font>
@@ -33,5 +33,11 @@
             <Font size="15.0" />
          </font>
       </Text>
+      <Text layoutX="107.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtNome" layoutX="314.0" layoutY="82.0" prefHeight="25.0" prefWidth="248.0" />
    </children>
 </AnchorPane>
