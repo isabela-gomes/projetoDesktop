@@ -6,8 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="projetoDesktop" />
+        <module name="projetoDesktop (2)" />
+        <module name="projetoDesktop (1)" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="projetoDesktop" target="21" />
+    </bytecodeTargetLevel>
   </component>
 </project>
