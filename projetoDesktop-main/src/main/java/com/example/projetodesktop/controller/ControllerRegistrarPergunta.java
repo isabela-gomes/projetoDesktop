@@ -1,7 +1,6 @@
 package com.example.projetodesktop.controller;
 
 import com.example.projetodesktop.database.BancoDeDados;
-import com.example.projetodesktop.model.Alimentos;
 import com.example.projetodesktop.model.Pergunta;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
