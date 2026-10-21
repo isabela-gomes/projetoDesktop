@@ -20,6 +20,9 @@ trocarTela(event, "menu.fxml");
     public void irParaPerguntas(ActionEvent event) throws IOException {
         trocarTela(event, "RegistroPergunta.fxml");
     }
+    public void irParaLembretes(ActionEvent event) throws IOException {
+        trocarTela(event, "Lembretecadastro.fxml");
+    }
 
     private void trocarTela(ActionEvent event, String arquivo) throws IOException {
 
