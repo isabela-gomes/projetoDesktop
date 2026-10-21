@@ -1,5 +1,6 @@
 package com.example.projetodesktop.controller;
 
+import com.example.projetodesktop.model.GerenciadorDados;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,7 +9,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -17,32 +17,13 @@ import java.io.IOException;
 
 public class ControllerCadastro {
 
-    @FXML
-    private TextField Tfcadastro;
-
-    @FXML
-    private PasswordField Tfsenha;
-
-    @FXML
-    private TextField TfsenhaTexto;
-
-    @FXML
-    private Button BtnVerSenha;
-
-    @FXML
-    private PasswordField Tfconfirmarsenha;
-
-    @FXML
-    private TextField TfconfirmarsenhaTexto;
-
-    @FXML
-    private Button BtnVerConfirmarSenha;
-
-    @FXML
-    private Button BttEntrar;
-
-    @FXML
-    private Hyperlink Hplogin;
+    @FXML private TextField Tfcadastro;
+    @FXML private PasswordField Tfsenha;
+    @FXML private TextField TfsenhaTexto;
+    @FXML private Button BtnVerSenha;
+    @FXML private PasswordField Tfconfirmarsenha;
+    @FXML private TextField TfconfirmarsenhaTexto;
+    @FXML private Button BtnVerConfirmarSenha;
 
     private boolean senhaVisivel = false;
     private boolean confirmarSenhaVisivel = false;
@@ -101,13 +82,19 @@ public class ControllerCadastro {
             return;
         }
 
+        if (GerenciadorDados.gerenteExiste(usuario)) {
+            exibirAlerta("Aviso", "Usuário Já Existe", "Já existe um gerente cadastrado com esse nome. Escolha outro login.", Alert.AlertType.WARNING);
+            return;
+        }
+
         if (!senha.equals(confirmarSenha)) {
             exibirAlerta("Aviso", "Senhas Incompatíveis", "A senha e a confirmação de senha não coincidem.", Alert.AlertType.WARNING);
             return;
         }
 
-        // Mensagem exatamente no formato que forneceu originalmente:
-        exibirAlerta("Sucesso", "Cadastro Realizado", "Usuário " + usuario + " cadastrado com sucesso!", Alert.AlertType.INFORMATION);
+        GerenciadorDados.adicionarGerente(usuario, senha);
+
+        exibirAlerta("Sucesso", "Cadastro Realizado", "Conta de Gerente (" + usuario + ") criada com sucesso! Você já pode realizar o login.", Alert.AlertType.INFORMATION);
     }
 
     @FXML
@@ -115,13 +102,11 @@ public class ControllerCadastro {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projetodesktop/view/login.fxml"));
             Parent root = loader.load();
-
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
-            exibirAlerta("Erro", "Erro ao carregar a tela", "Não foi possível abrir a tela de login.", Alert.AlertType.ERROR);
         }
     }
 

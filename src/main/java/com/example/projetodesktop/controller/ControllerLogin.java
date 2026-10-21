@@ -1,5 +1,7 @@
 package com.example.projetodesktop.controller;
 
+import com.example.projetodesktop.model.GerenciadorDados;
+import com.example.projetodesktop.model.SessaoUsuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,7 +10,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -17,23 +18,10 @@ import java.io.IOException;
 
 public class ControllerLogin {
 
-    @FXML
-    private TextField TfLogin;
-
-    @FXML
-    private PasswordField Tfsenha;
-
-    @FXML
-    private TextField TfsenhaTexto;
-
-    @FXML
-    private Button BtnVerSenha;
-
-    @FXML
-    private Button BttEntrar;
-
-    @FXML
-    private Hyperlink Hpcadastro;
+    @FXML private TextField TfLogin;
+    @FXML private PasswordField Tfsenha;
+    @FXML private TextField TfsenhaTexto;
+    @FXML private Button BtnVerSenha;
 
     private boolean senhaVisivel = false;
 
@@ -64,9 +52,31 @@ public class ControllerLogin {
 
         if (login == null || login.trim().isEmpty() || senha == null || senha.trim().isEmpty()) {
             exibirAlerta("Aviso", "Preenchimento Obrigatório", "Por favor, preencha o login e a senha para entrar.", Alert.AlertType.WARNING);
-        } else {
-            // Mensagem no seu formato original exato:
-            exibirAlerta("Sucesso", "Login Realizado", "Bem-vindo(a), " + login + "!", Alert.AlertType.INFORMATION);
+            return;
+        }
+
+        if (!GerenciadorDados.gerenteExiste(login)) {
+            exibirAlerta("Erro de Acesso", "Usuário Inexistente", "Não existe nenhuma conta de gerente com esse nome de login.", Alert.AlertType.ERROR);
+            return;
+        }
+
+        GerenciadorDados.UsuarioModel gerente = GerenciadorDados.buscarGerente(login);
+        if (!gerente.getSenha().equals(senha)) {
+            exibirAlerta("Erro de Acesso", "Senha Inválida", "A senha digitada está incorreta. Verifique e tente novamente.", Alert.AlertType.ERROR);
+            return;
+        }
+
+        SessaoUsuario.getInstancia().setUsuarioLogado(login);
+        exibirAlerta("Sucesso", "Login Realizado", "Bem-vindo(a), " + login + "!", Alert.AlertType.INFORMATION);
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projetodesktop/view/menu.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -75,13 +85,11 @@ public class ControllerLogin {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projetodesktop/view/cadastro.fxml"));
             Parent root = loader.load();
-
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
-            exibirAlerta("Erro", "Erro ao carregar a tela", "Não foi possível abrir a tela de cadastro.", Alert.AlertType.ERROR);
         }
     }
 
