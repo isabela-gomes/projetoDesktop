@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projetodesktop.controller.ControllerRelatorios">
+    <children>
+        <Label layoutX="30.0" layoutY="20.0" text="Relatórios de Saúde &amp; Triagem (Quiz)">
+            <font><Font name="System Bold" size="22.0" /></font>
+        </Label>
+
+        <!-- Gráfico de Barras com Estatísticas do Quiz -->
+        <BarChart fx:id="graficoDisturbios" layoutX="25.0" layoutY="60.0" prefHeight="330.0" prefWidth="590.0" title="Identificação de Tendências a Distúrbios Alimentares">
+            <xAxis>
+                <CategoryAxis label="Condição / Indicador" side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis label="Quantidade de Usuários" side="LEFT" />
+            </yAxis>
+        </BarChart>
+
+        <Button layoutX="30.0" layoutY="430.0" mnemonicParsing="false" onAction="#handleVoltar" text="⬅ Voltar ao Menu" />
+    </children>
+</AnchorPane>
