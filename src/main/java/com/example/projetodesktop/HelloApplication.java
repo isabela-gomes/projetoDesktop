@@ -11,7 +11,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/projetodesktop/view/login.fxml"));        Scene scene = new Scene(fxmlLoader.load(), 620, 440);
-        stage.setTitle("Cadastro/Login");
+        stage.setTitle("Nutricat");
         stage.setScene(scene);
         stage.show();
     }

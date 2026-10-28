@@ -14,19 +14,18 @@ import java.io.IOException;
 
 public class ControllerRelatorios {
 
-    @FXML
-    private BarChart<String, Number> graficoDisturbios;
+    @FXML private BarChart<String, Number> graficoDisturbios;
 
     @FXML
     public void initialize() {
         XYChart.Series<String, Number> serie = new XYChart.Series<>();
         serie.setName("Resultados do Quiz Inicial");
 
-        serie.getData().add(new XYChart.Data<>("Sem Compulsão", 120));
-        serie.getData().add(new XYChart.Data<>("Compulsão Leve", 45));
-        serie.getData().add(new XYChart.Data<>("Tendência à Anorexia", 28));
-        serie.getData().add(new XYChart.Data<>("Tendência à Bulimia", 34));
-        serie.getData().add(new XYChart.Data<>("Meta Dificuldade Água", 80));
+        serie.getData().add(new XYChart.Data<>("Alimentação", 120));
+        serie.getData().add(new XYChart.Data<>("Hidratação", 45));
+        serie.getData().add(new XYChart.Data<>("Sono / Descanso", 28));
+        serie.getData().add(new XYChart.Data<>("Movimento", 34));
+        serie.getData().add(new XYChart.Data<>("Saúde e Rotina", 80));
 
         graficoDisturbios.getData().add(serie);
     }
