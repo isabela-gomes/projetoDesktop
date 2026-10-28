@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projetodesktop.controller.ControllerReceitas">
+
+  <children>
+    <Button fx:id="Registrar Quiz"layoutX="457.0" layoutY="342.0" mnemonicParsing="false" text="Registrar Quiz" />
+    <Button fx:id="btnAdicionarPergunta"layoutX="49.0" layoutY="342.0" mnemonicParsing="false" text="Excluir pergunta" />
+    <Text LayouTx="225.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registrar Quiz">
+
+
+    <Text layoutX="32" layoutY="34">
+    <font  ="Arial" size="19"/>
+    Quiz: Como você vê o seu próprio corpo?
+</Text>
+<Text layoutX="32" layoutY="70">
+    <font name="Arial" size="13"/>
+    Leia cada pergunta com calma e marque a sua resposta sincera.
+</Text>
+
+<Text layoutX="32" layoutY="102">
+    <font name="Arial" size="12"/>
+    1. Ter‑se sentido entediado(a) fez com que você passasse a se preocupar com a sua forma física?
+</Text>
+<Text layoutX="32" layoutY="128">
+    <font name="Arial" size="12"/>
+    2. Tem estado tão preocupado(a) com a forma do seu corpo que sentiu que deveria fazer dieta?
+</Text>
+<Text layoutX="32" layoutY="154">
+    <font name="Arial" size="12"/>
+    3. Pensar na forma do seu corpo interferiu na sua capacidade de concentrar‑se (por exemplo, enquanto assiste à TV, lê ou conversa)?
+</Text>
+<Text layoutX="32" layoutY="180">
+    <font name="Arial" size="12"/>
+    4. Imagina que as pessoas estão reparando em suas imperfeições quando você está comendo?
+</Text>
+<Text layoutX="32" layoutY="206">
+    <font name="Arial" size="12"/>
+    5. Sentiu‑se deprimido(a) por causa da forma do seu corpo?
+</Text>
+<Text layoutX="32" layoutY="232">
+    <font name="Arial" size="12"/>
+    6. O pensamento sobre a forma do seu corpo fez com que você se sentisse gordo(a)?
+</Text>
+<Text layoutX="32" layoutY="258">
+    <font name="Arial" size="12"/>
+    7. Sentiu‑se culpado(a) depois de ter comido?
+</Text>
+<Text layoutX="32" layoutY="284">
+    <font name="Arial" size="12"/>
+    8. Teve vergonha do seu corpo?
+</Text>
+<Text layoutX="32" layoutY="310">
+    <font name="Arial" size="12"/>
+    9. O fato de se preocupar com a sua forma física fez com que você passasse a se exercitar?
+</Text>
+<Text layoutX="32" layoutY="336">
+    <font name="Arial" size="12"/>
+    10. Sentiu‑se gordo(a) mesmo quando outras pessoas diziam que você estava magro(a)?
+</Text>
+<Text layoutX="32" layoutY="362">
+    <font name="Arial" size="12"/>
+    11. Sentiu‑se gordo(a) depois de ter comido?
+</Text>
+<Text layoutX="32" layoutY="388">
+    <font name="Arial" size="12"/>
+    12. Sentiu‑se mal consigo mesmo(a) por causa do seu peso?
+</Text>
+<Text layoutX="32" layoutY="414">
+    <font name="Arial" size="12"/>
+    13. Evitou usar roupas que mostrassem a forma do seu corpo?
+</Text>
+<Text layoutX="32" layoutY="440">
+    <font name="Arial" size="12"/>
+    14. Sentiu repulsa ou nojo do seu corpo (por exemplo, ao se ver no espelho ou ao tomar banho)?
+</Text>
+<Text layoutX="32" layoutY="466">
+    <font name="Arial" size="12"/>
+    15. Evitou situações sociais (por exemplo, festas, sair com amigos) por causa do seu peso ou da forma do seu corpo?
+</Text>
+<Text layoutX="32" layoutY="492">
+    <font name="Arial" size="12"/>
+    16. Sentiu medo de ganhar peso?
+</Text>
+<Text layoutX="32" layoutY="518">
+    <font name="Arial" size="12"/>
+    17. Sentiu‑se atraído(a) por fotos de pessoas magras e desejou ter um corpo parecido?
+</Text>
+<Text layoutX="32" layoutY="544">
+    <font name="Arial" size="12"/>
+    18. Evitou olhar‑se no espelho por vergonha do seu corpo?
+</Text>
+<Text layoutX="32" layoutY="570">
+    <font name="Arial" size="12"/>
+    19. Comparou o seu corpo com o de outras pessoas da sua idade?
+</Text>
+<Text layoutX="32" layoutY="596">
+    <font name="Arial" size="12"/>
+    20. Sentiu que as pessoas estão julgando você de forma negativa por causa do formato do seu corpo?
+</Text>
+<Text layoutX="32" layoutY="622">
+    <font name="Arial" size="12"/>
+    21. Desejou poder mudar partes específicas do seu corpo (como coxas, barriga ou quadril)?
+</Text>
+<Text layoutX="32" layoutY="648">
+    <font name="Arial" size="12"/>
+    22. Evitou se pesar por medo de ter engordado?
+</Text>
+<Text layoutX="32" layoutY="674">
+    <font name="Arial" size="12"/>
+    23. Sentiu que seu corpo ocupa muito espaço (por exemplo, ao sentar‑se em um banco ou transporte público)?
+</Text>
+<Text layoutX="32" layoutY="700">
+    <font name="Arial" size="12"/>
+    24. Sentiu inveja do corpo de outras pessoas?
+</Text>
+<Text layoutX="32" layoutY="726">
+    <font name="Arial" size="12"/>
+    25. Sentiu‑se desconfortável ao usar roupas justas por causa da forma do seu corpo?
+</Text>
+<Text layoutX="32" layoutY="752">
+    <font name="Arial" size="12"/>
+    26. Sentiu que o formato do seu corpo é a coisa mais importante na sua vida?
+</Text>
+<Text layoutX="32" layoutY="778">
+    <font name="Arial" size="12"/>
+    27. Evitou comer perto de outras pessoas por vergonha do seu peso?
+</Text>
+<Text layoutX="32" layoutY="804">
+    <font name="Arial" size="12"/>
+    28. Sentiu que seu corpo parece desproporcional?
+</Text>
+<Text layoutX="32" layoutY="830">
+    <font name="Arial" size="12"/>
+    29. Sentiu que as roupas parecem não vestir bem em você por causa do seu formato físico?
+</Text>
+<Text layoutX="32" layoutY="856">
+    <font name="Arial" size="12"/>
+    30. Sentiu que a insatisfação com seu corpo afeta seu humor ao longo do dia?
+</Text>
+<Text layoutX="32" layoutY="882">
+    <font name="Arial" size="12"/>
+    31. Sentiu necessidade de esconder seu corpo com roupas largas ou casacos?
+</Text>
+<Text layoutX="32" layoutY="908">
+    <font name="Arial" size="12"/>
+    32. Sentiu que seu peso ou forma corporal impedem você de aproveitar a vida?
+</Text>
+<Text layoutX="32" layoutY="934">
+    <font name="Arial" size="12"/>
+    33. Pensou que seria mais feliz se mudasse a forma do seu corpo?
+</Text>
+<Text layoutX="32" layoutY="960">
+    <font name="Arial" size="12"/>
+    34. Sentiu que a preocupação com o corpo é um pensamento que você não consegue controlar?
+</Text>
+
+</AnchorPane>

@@ -7,6 +7,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import java.io.File;
 
 public class ControllerReceitas {
     @FXML
@@ -27,13 +34,14 @@ public class ControllerReceitas {
         txtTabelaNutricional.clear();
         txtReceita.clear();
     }
+
     public void RegistrarReceitas() {
         String nome = txtNome.getText();
         String descricao = txtReceita.getText();
         String alergicos = txtAlergicos.getText();
         String tabelaNutricional = txtTabelaNutricional.getText();
 
-        if (nome.length() == 0|| descricao.length() == 0|| alergicos.length() == 0 || tabelaNutricional.length() == 0) {
+        if (nome.length() == 0 || descricao.length() == 0 || alergicos.length() == 0 || tabelaNutricional.length() == 0) {
             exibirAlerta(Alert.AlertType.WARNING, "Aviso", "Por favor,preencha todos os campos para continuar.");
             return;
         }
@@ -43,12 +51,33 @@ public class ControllerReceitas {
                 "A receita " + nome + " foi adicionada");
         ExcluirReceita();
     }
+
     private void exibirAlerta(Alert.AlertType tipo, String titulo, String mensagem) {
         Alert alert = new Alert(tipo);
         alert.setTitle(titulo);
         alert.setHeaderText(null);
         alert.setContentText(mensagem);
         alert.showAndWait();
+    }
+
+    @FXML
+    private void selecionarArquivos(javafx.event.ActionEvent event) {
+        javafx.stage.FileChooser fileChooser = new javafx.stage.FileChooser();
+        fileChooser.setTitle("Selecione um Arquivo");
+
+        fileChooser.getExtensionFilters().add(
+                new javafx.stage.FileChooser.ExtensionFilter("Todos os Arquivos", "*.*")
+        );
+
+        javafx.scene.Node componente = (javafx.scene.Node) event.getSource();
+        javafx.stage.Stage stage = (javafx.stage.Stage) componente.getScene().getWindow();
+
+        java.io.File arquivo = fileChooser.showOpenDialog(stage);
+
+        if (arquivo != null) {
+            System.out.println("Arquivo selecionado: " + arquivo.getAbsolutePath());
+
+        }
     }
 }
 
