@@ -93,7 +93,6 @@ public class ControllerCadastro {
         }
 
         GerenciadorDados.adicionarGerente(usuario, senha);
-
         exibirAlerta("Sucesso", "Cadastro Realizado", "Conta de Gerente (" + usuario + ") criada com sucesso! Você já pode realizar o login.", Alert.AlertType.INFORMATION);
     }
 

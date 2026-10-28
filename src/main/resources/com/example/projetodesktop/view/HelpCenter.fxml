@@ -6,41 +6,105 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="550.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projetodesktop.controller.ControllerHelpCenter">
+<AnchorPane prefHeight="889.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projetodesktop.controller.ControllerHelpCenter">
     <children>
         <Label layoutX="30.0" layoutY="20.0" text="Central de Ajuda &amp; Denúncias">
             <font><Font name="System Bold" size="22.0" /></font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0" startY="0.6729857819905213">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.46655702590942383" green="0.5180464386940002" blue="0.9078947305679321" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.7105262875556946" green="0.7105262875556946" blue="0.7105262875556946" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
         </Label>
 
-        <TableView fx:id="tabelaTickets" layoutX="30.0" layoutY="60.0" prefHeight="160.0" prefWidth="640.0">
+        <TableView fx:id="tabelaTickets" layoutX="30.0" layoutY="60.0" prefHeight="164.0" prefWidth="700.0">
             <columns>
                 <TableColumn fx:id="colProtocolo" prefWidth="90.0" text="Protocolo" />
-                <TableColumn fx:id="colUsuario" prefWidth="120.0" text="Usuário" />
+                <TableColumn fx:id="colUsuario" prefWidth="120.0" text="Quem Reportou" />
                 <TableColumn fx:id="colTipo" prefWidth="150.0" text="Tipo" />
-                <TableColumn fx:id="colStatus" prefWidth="120.0" text="Status" />
-                <TableColumn fx:id="colDescricao" prefWidth="158.0" text="Descrição" />
+                <TableColumn fx:id="colStatus" prefWidth="110.0" text="Status" />
+                <TableColumn fx:id="colDescricao" prefWidth="228.0" text="Descrição" />
             </columns>
         </TableView>
 
-        <Label layoutX="30.0" layoutY="235.0" text="Detalhes / Responder Ticket:">
+        <Label layoutX="30.0" layoutY="225.0" text="Detalhes / Responder Ticket:">
             <font><Font name="System Bold" size="13.0" /></font>
         </Label>
 
-        <TextArea fx:id="taDescricao" editable="false" layoutX="30.0" layoutY="260.0" prefHeight="80.0" prefWidth="640.0" promptText="Selecione um ticket na tabela acima para ver os detalhes..." wrapText="true" />
+        <TextArea fx:id="taDescricao" editable="false" layoutX="30.0" layoutY="250.0" prefHeight="90.0" prefWidth="700.0" promptText="Selecione um ticket na tabela acima..." wrapText="true" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="323.0" layoutX="26.0" layoutY="360.0" stroke="BLACK" strokeType="INSIDE" width="700.0">
+         <fill>
+            <LinearGradient endX="1.0" startX="0.17535545023696683" startY="0.5687203791469194">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.3644999861717224" green="0.8100000023841858" blue="0.7951499819755554" opacity="0.4465648829936981" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.2551972499590768">
+                     <color>
+                        <Color red="0.3589000105857849" green="0.6135249733924866" blue="0.9700000286102295" opacity="0.7484732866287231" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.47256097560975613">
+                     <color>
+                        <Color red="0.33320000767707825" green="0.3763200044631958" blue="0.9800000190734863" opacity="0.5767175555229187" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.7199009657881813">
+                     <color>
+                        <Color red="0.7393333315849304" green="0.3199999928474426" blue="1.0" opacity="0.42786261439323425" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.7570000290870667" green="0.1899999976158142" blue="1.0" opacity="0.46183204650878906" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
 
-        <Label layoutX="30.0" layoutY="355.0" text="Status do Ticket:" />
-        <ComboBox fx:id="cbStatus" layoutX="130.0" layoutY="350.0" prefWidth="180.0" />
+        <ImageView fx:id="imgDenuncia" fitHeight="300.0" fitWidth="673.0" layoutX="37.0" layoutY="370.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: #ccc;" />
+        <Label layoutX="24.0" layoutY="345.0" text="Print / Imagem Denunciada:" textFill="#666666">
+            <font>
+                <Font size="10.0" />
+            </font></Label>
 
-        <Label layoutX="30.0" layoutY="390.0" text="Resposta ao Usuário:" />
-        <TextArea fx:id="taResposta" layoutX="30.0" layoutY="410.0" prefHeight="70.0" prefWidth="640.0" promptText="Digite a resposta do suporte..." wrapText="true" />
+        <Label layoutX="30.0" layoutY="689.0" text="Status do Ticket:" />
+        <ComboBox fx:id="cbStatus" layoutX="126.0" layoutY="685.0" prefWidth="180.0" />
 
-        <Button layoutX="520.0" layoutY="490.0" mnemonicParsing="false" onAction="#handleSalvarAlteracoes" style="-fx-background-color: #2eaf5d;" text="💾 Salvar / Atualizar" textFill="WHITE">
+        <Button fx:id="btnBanirDireto" layoutX="566.0" layoutY="698.0" mnemonicParsing="false" onAction="#handleBanirDenunciado" style="-fx-background-color: #ff4d4d;" text="🚫 Banir Usuário Denunciado" textFill="WHITE">
+            <font><Font name="System Bold" size="11.0" /></font>
+        </Button>
+
+        <Label layoutX="30.0" layoutY="715.0" text="Resposta ao Usuário:" />
+        <TextArea fx:id="taResposta" layoutX="30.0" layoutY="743.0" prefHeight="65.0" prefWidth="700.0" promptText="Digite a resposta do suporte..." wrapText="true" />
+
+        <Button layoutX="579.0" layoutY="822.0" mnemonicParsing="false" onAction="#handleSalvarAlteracoes" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #2eaf5d;" text="💾 Salvar / Atualizar" textFill="WHITE">
             <font><Font name="System Bold" size="12.0" /></font>
         </Button>
 
-        <Button layoutX="30.0" layoutY="490.0" mnemonicParsing="false" onAction="#handleVoltar" text="⬅ Voltar ao Menu" />
+        <Button layoutX="30.0" layoutY="822.0" mnemonicParsing="false" onAction="#handleVoltar" prefHeight="30.0" prefWidth="130.0" text="⬅ Voltar ao Menu" />
     </children>
 </AnchorPane>

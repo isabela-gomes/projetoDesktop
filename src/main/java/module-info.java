@@ -11,7 +11,4 @@ module com.example.projetodesktop {
 
     opens com.example.projetodesktop to javafx.fxml;
     exports com.example.projetodesktop;
-
-    opens com.example.projetodesktop.controller to javafx.fxml;
-    exports com.example.projetodesktop.controller;
 }

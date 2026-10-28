@@ -21,14 +21,15 @@ public class ControllerRegistroLogins {
     @FXML private TableColumn<UsuarioModel, String> colUsuario;
     @FXML private TableColumn<UsuarioModel, String> colStatus;
     @FXML private TableColumn<UsuarioModel, String> colDataCadastro;
+    @FXML private TableColumn<UsuarioModel, Integer> colIdadeuser; // Alterado para Integer
 
     @FXML
     public void initialize() {
         colUsuario.setCellValueFactory(new PropertyValueFactory<>("login"));
         colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
         colDataCadastro.setCellValueFactory(new PropertyValueFactory<>("dataCadastro"));
+        colIdadeuser.setCellValueFactory(new PropertyValueFactory<>("idade")); // Vínculo com o atributo idade
 
-        // Carrega estritamente a lista de clientes
         tabelaUsuarios.setItems(GerenciadorDados.getListaClientes());
     }
 
