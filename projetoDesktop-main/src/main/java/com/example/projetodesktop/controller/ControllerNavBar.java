@@ -17,9 +17,6 @@ trocarTela(event, "menu.fxml");
     public void irParaListarUsuario(ActionEvent event) throws IOException {
         trocarTela(event, "ListaDeUsuarios.fxml");
     }
-    public void irParaPerguntas(ActionEvent event) throws IOException {
-        trocarTela(event, "RegistroPergunta.fxml");
-    }
     public void irParaLembretes(ActionEvent event) throws IOException {
         trocarTela(event, "Lembretecadastro.fxml");
     }

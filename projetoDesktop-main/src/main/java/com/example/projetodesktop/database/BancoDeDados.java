@@ -6,9 +6,6 @@ import java.util.ArrayList;
 
 public class BancoDeDados {
 
-    public static ArrayList<Administrador> administradors=new ArrayList<>();
-    public static ArrayList<Receitas> receitas= new ArrayList<>();
-
     public static ArrayList<Lembrete> lembretes = new ArrayList<>();
 
     public static ArrayList<Cliente> clientes = new ArrayList<>();

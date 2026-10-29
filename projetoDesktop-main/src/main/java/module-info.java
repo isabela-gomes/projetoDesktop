@@ -4,7 +4,6 @@ module com.example.projetodesktop {
 
     opens com.example.projetodesktop.controller to javafx.fxml;
 
-    // ADICIONE ESTA LINHA ABAIXO:
     opens com.example.projetodesktop.model to javafx.base, javafx.fxml;
 
     exports com.example.projetodesktop;
