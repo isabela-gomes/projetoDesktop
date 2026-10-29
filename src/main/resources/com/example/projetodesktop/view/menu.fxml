@@ -1,47 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projetodesktop.controller.ControllerMenu">
-    <children>
-        <Label fx:id="lblBoasVindas" layoutX="30.0" layoutY="20.0" text="Olá!">
-            <font><Font name="System Bold" size="18.0" /></font>
-        </Label>
-
-        <Label layoutX="180.0" layoutY="50.0" text="Menu Principal">
-            <font>
-                <Font name="System Bold" size="32.0" />
-            </font>
-            <textFill>
-                <LinearGradient endX="1.0" endY="1.0">
-                    <stops>
-                        <Stop><color><Color green="0.417" blue="0.736" /></color></Stop>
-                        <Stop offset="1.0"><color><Color red="0.282" green="0.701" blue="1.0" /></color></Stop>
-                    </stops>
-                </LinearGradient>
-            </textFill>
-        </Label>
-
-        <Button layoutX="175.0" layoutY="130.0" mnemonicParsing="false" onAction="#handleAbrirGerenciarUsuarios" prefHeight="45.0" prefWidth="250.0" text="👤 Manter / Reg. Usuários">
-            <font><Font name="System Bold" size="14.0" /></font>
-        </Button>
-
-        <Button layoutX="175.0" layoutY="190.0" mnemonicParsing="false" onAction="#handleAbrirHelpCenter" prefHeight="45.0" prefWidth="250.0" text="💬 Help Center / Denúncias">
-            <font><Font name="System Bold" size="14.0" /></font>
-        </Button>
-
-        <Button layoutX="175.0" layoutY="250.0" mnemonicParsing="false" onAction="#handleAbrirRelatorios" prefHeight="45.0" prefWidth="250.0" text="📊 Relatórios de Saúde">
-            <font><Font name="System Bold" size="14.0" /></font>
-        </Button>
-
-        <Button layoutX="175.0" layoutY="330.0" mnemonicParsing="false" onAction="#handleSair" prefHeight="35.0" prefWidth="250.0" text="🚪 Sair / Logoff">
-            <font><Font size="13.0" /></font>
-        </Button>
-    </children>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projetodesktop.controller.ControllerMenu">
+   <children>
+      <Text layoutX="170.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem Vindo   " textAlignment="CENTER" wrappingWidth="260.6962890625">
+         <font>
+            <Font size="46.0" />
+         </font>
+      </Text>
+      <fx:include source="NavBar.fxml" />
+   </children>
 </AnchorPane>
