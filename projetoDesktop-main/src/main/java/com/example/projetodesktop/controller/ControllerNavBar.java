@@ -14,8 +14,8 @@ public class ControllerNavBar {
 public void irParaInicio(ActionEvent event) throws IOException {
 trocarTela(event, "menu.fxml");
 }
-    public void irParaAlimentos(ActionEvent event) throws IOException {
-        trocarTela(event, "AlimentoCAdastro.fxml");
+    public void irParaListarUsuario(ActionEvent event) throws IOException {
+        trocarTela(event, "ListaDeUsuarios.fxml");
     }
     public void irParaPerguntas(ActionEvent event) throws IOException {
         trocarTela(event, "RegistroPergunta.fxml");
@@ -27,7 +27,7 @@ trocarTela(event, "menu.fxml");
     private void trocarTela(ActionEvent event, String arquivo) throws IOException {
 
         Parent root = FXMLLoader.load(
-                getClass().getResource("/com/example/projetoDesktop/view/" + arquivo)
+                getClass().getResource("/com/example/projetodesktop/view/" + arquivo)
         );
         System.out.println(arquivo);
         Stage stage = (Stage) ((Node) event.getSource())
