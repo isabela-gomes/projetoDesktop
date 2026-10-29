@@ -3,6 +3,7 @@ module com.example.projetodesktop {
     requires javafx.fxml;
     requires javafx.graphics;
 
+
     opens com.example.projetodesktop.controller to javafx.fxml;
     exports com.example.projetodesktop.controller;
 
@@ -10,5 +11,9 @@ module com.example.projetodesktop {
     exports com.example.projetodesktop.model;
 
     opens com.example.projetodesktop to javafx.fxml;
+    exports com.example.projetodesktop;
+
+    opens com.example.projetodesktop.model to javafx.base, javafx.fxml;
+
     exports com.example.projetodesktop;
 }
