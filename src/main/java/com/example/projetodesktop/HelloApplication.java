@@ -13,6 +13,8 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view/CadastroReceitas.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Hello!");
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/projetodesktop/view/login.fxml"));        Scene scene = new Scene(fxmlLoader.load(), 620, 440);
+        stage.setTitle("Nutricat");
         stage.setScene(scene);
         stage.show();
     }

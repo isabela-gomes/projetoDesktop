@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projetodesktop.controller.ControllerRegistrarPergunta">
+   <children>
+      <Text layoutX="251.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REGISTRO DE PERGUNTA DIARIA" textAlignment="CENTER" wrappingWidth="286.62890625">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Text>
+      <Text layoutX="14.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TITULO DA PERGUNTA:">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtitulopergunta" layoutX="14.0" layoutY="106.0" prefHeight="32.0" prefWidth="185.0" />
+      <TextField fx:id="txdescricaopergunta" layoutX="14.0" layoutY="184.0" prefHeight="32.0" prefWidth="185.0" />
+      <Text layoutX="14.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DESCRIÇÃO;">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnregistrar" layoutX="14.0" layoutY="255.0" mnemonicParsing="false" onAction="#RegistrarPergunta" prefHeight="32.0" prefWidth="76.0" text="REGISTRAR" />
+      <Button fx:id="btncancelar" layoutX="123.0" layoutY="255.0" mnemonicParsing="false" onAction="#limpar" prefHeight="32.0" prefWidth="76.0" text="CANCELAR" />
+      <fx:include source="NavBar.fxml" />
+   </children>
+</AnchorPane>
