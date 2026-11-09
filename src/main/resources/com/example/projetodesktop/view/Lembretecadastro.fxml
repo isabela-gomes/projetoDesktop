@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="560.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projetodesktop.controller.ControllerRegistroLembrete">
+ <children>
+  <Label layoutX="24" layoutY="22" text="Registrar Lembrete" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #69a8dc;"/>
+  <Label layoutX="28" layoutY="90" text="Título do lembrete"/><TextField fx:id="txtitulo" layoutX="28" layoutY="115" prefWidth="300"/>
+  <Label layoutX="28" layoutY="160" text="Descrição"/><TextField fx:id="txdescricao" layoutX="28" layoutY="185" prefWidth="500"/>
+  <Label layoutX="28" layoutY="230" text="Horário"/><ComboBox fx:id="combohoras" layoutX="28" layoutY="255" prefWidth="150"/>
+  <Button layoutX="28" layoutY="305" onAction="#registrarLembrete" text="REGISTRAR" style="-fx-background-color: #69a8dc; -fx-text-fill: white;"/><Button layoutX="135" layoutY="305" onAction="#limpar" text="CANCELAR"/>
+  <Label layoutX="28" layoutY="365" text="Lembretes cadastrados" style="-fx-font-weight: bold;"/>
+  <TableView fx:id="tabelaLembretes" layoutX="28" layoutY="390" prefWidth="700" prefHeight="115"><columns><TableColumn fx:id="colTitulo" text="Título" prefWidth="180"/><TableColumn fx:id="colDescricao" text="Descrição" prefWidth="360"/><TableColumn fx:id="colHorario" text="Horário" prefWidth="140"/></columns></TableView>
+  <Button layoutX="28" layoutY="520" onAction="#handleVoltar" text="⬅ Voltar ao Menu"/>
+ </children>
+</AnchorPane>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="890.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projetodesktop.controller.ControllerHelpCenter">
+ <children>
+  <Label layoutX="30" layoutY="20" text="Central de Ajuda &amp; Denúncias" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #69a8dc;"/>
+  <TableView fx:id="tabelaTickets" layoutX="30" layoutY="60" prefHeight="165" prefWidth="740"><columns><TableColumn fx:id="colProtocolo" text="Protocolo" prefWidth="90"/><TableColumn fx:id="colUsuario" text="Quem Reportou" prefWidth="130"/><TableColumn fx:id="colTipo" text="Tipo" prefWidth="150"/><TableColumn fx:id="colStatus" text="Status" prefWidth="110"/><TableColumn fx:id="colDescricao" text="Descrição" prefWidth="260"/></columns></TableView>
+  <Label layoutX="30" layoutY="240" text="Detalhes / Responder Ticket:" style="-fx-font-weight: bold;"/>
+  <TextArea fx:id="taDescricao" editable="false" layoutX="30" layoutY="265" prefHeight="110" prefWidth="740" wrapText="true"/>
+  <Label layoutX="30" layoutY="390" text="Print / Imagem Denunciada:" textFill="#666666"/>
+  <ImageView fx:id="imgDenuncia" fitHeight="260" fitWidth="730" layoutX="35" layoutY="415" pickOnBounds="true" preserveRatio="true"/>
+  <Label layoutX="30" layoutY="695" text="Status do Ticket:"/><ComboBox fx:id="cbStatus" layoutX="130" layoutY="690" prefWidth="180"/>
+  <Button layoutX="485" layoutY="690" onAction="#handleBanirDenunciado" text="🚫 Banir Usuário Denunciado" style="-fx-background-color: #ff4d4d; -fx-text-fill: white;"/>
+  <Label layoutX="30" layoutY="735" text="Resposta ao Usuário:"/><TextArea fx:id="taResposta" layoutX="30" layoutY="760" prefHeight="65" prefWidth="740" wrapText="true" promptText="Digite a resposta do suporte..."/>
+  <Button layoutX="30" layoutY="840" onAction="#handleVoltar" text="⬅ Voltar ao Menu"/><Button layoutX="620" layoutY="840" onAction="#handleSalvarAlteracoes" text="💾 Salvar / Atualizar" style="-fx-background-color: #2eaf5d; -fx-text-fill: white;"/>
+ </children>
+</AnchorPane>

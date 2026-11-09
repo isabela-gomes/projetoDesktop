@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="440.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projetodesktop.controller.ControllerCadastro">
+ <children>
+  <Label layoutX="205.0" layoutY="60.0" text="Cadastre e forneça uma senha!"/>
+  <Label layoutX="205.0" layoutY="95.0" text="Cadastro"/><TextField fx:id="Tfcadastro" layoutX="280.0" layoutY="91.0"/>
+  <Label layoutX="205.0" layoutY="135.0" text="Senha"/><PasswordField fx:id="Tfsenha" layoutX="280.0" layoutY="131.0"/><TextField fx:id="TfsenhaTexto" layoutX="280.0" layoutY="131.0" visible="false" managed="false"/><Button fx:id="BtnVerSenha" layoutX="436.0" layoutY="131.0" onAction="#handleToggleMostrarSenha" text="👁"/>
+  <Label layoutX="175.0" layoutY="175.0" text="Confirmar Senha"/><PasswordField fx:id="Tfconfirmarsenha" layoutX="280.0" layoutY="171.0"/><TextField fx:id="TfconfirmarsenhaTexto" layoutX="280.0" layoutY="171.0" visible="false" managed="false"/><Button fx:id="BtnVerConfirmarSenha" layoutX="436.0" layoutY="171.0" onAction="#handleToggleMostrarConfirmarSenha" text="👁"/>
+  <Button layoutX="214.0" layoutY="250.0" prefWidth="200.0" onAction="#handleCadastrar" text="Cadastrar" style="-fx-background-color: #69a8dc; -fx-text-fill: white; -fx-font-weight: bold;"/>
+  <Hyperlink layoutX="250.0" layoutY="292.0" onAction="#handleIrParaLogin" text="Já tem login? Entre"/>
+ </children>
+</AnchorPane>

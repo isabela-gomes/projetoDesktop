@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="500.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projetodesktop.controller.ControllerRegistroLogins">
+ <children>
+  <Label layoutX="30" layoutY="20" text="Gerenciamento de Usuários" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #69a8dc;"/>
+  <TableView fx:id="tabelaUsuarios" layoutX="30" layoutY="65" prefHeight="260" prefWidth="790"><columns><TableColumn fx:id="colUsuario" text="Usuário / Login" prefWidth="220"/><TableColumn fx:id="colStatus" text="Status" prefWidth="250"/><TableColumn fx:id="colDataCadastro" text="Data de Cadastro" prefWidth="170"/><TableColumn fx:id="colIdadeuser" text="Idade" prefWidth="140"/></columns></TableView>
+  <Label layoutX="30" layoutY="345" text="Ações do usuário selecionado:" style="-fx-font-weight: bold;"/>
+  <Button layoutX="30" layoutY="380" onAction="#handleBanirUsuario" text="🚫 Banir Usuário" style="-fx-background-color: #ff4d4d; -fx-text-fill: white;"/><Button layoutX="175" layoutY="380" onAction="#handleDesbanirUsuario" text="✅ Desbanir Usuário" style="-fx-background-color: #2eaf5d; -fx-text-fill: white;"/><Button layoutX="350" layoutY="380" onAction="#handleExcluirUsuario" text="🗑 Excluir Usuário" style="-fx-background-color: #333333; -fx-text-fill: white;"/>
+  <Button layoutX="30" layoutY="445" onAction="#handleVoltar" text="⬅ Voltar ao Menu"/>
+ </children>
+</AnchorPane>

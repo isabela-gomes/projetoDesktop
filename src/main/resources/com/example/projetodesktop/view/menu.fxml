@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="560.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projetodesktop.controller.ControllerMenu">
+ <children>
+  <Label layoutX="36.0" layoutY="24.0" text="NUTRICAT" style="-fx-font-size: 30px; -fx-font-weight: bold; -fx-text-fill: #69a8dc;"/>
+  <Label fx:id="lblBoasVindas" layoutX="39.0" layoutY="68.0" text="Olá!" style="-fx-font-size: 15px; -fx-text-fill: #777777;"/>
+  <Label layoutX="39.0" layoutY="112.0" text="MENU PRINCIPAL" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+  <GridPane layoutX="38.0" layoutY="153.0" hgap="18.0" vgap="18.0">
+   <children>
+    <Button text="Quiz de Bem-estar" onAction="#abrirQuiz" prefWidth="210" prefHeight="66" style="-fx-background-color: #e7f2fb; -fx-text-fill: #397caf; -fx-font-size: 15px; -fx-font-weight: bold;" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <Button text="Receitas" onAction="#abrirReceitas" prefWidth="210" prefHeight="66" style="-fx-background-color: #e7f2fb; -fx-text-fill: #397caf; -fx-font-size: 15px; -fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+    <Button text="Lembretes" onAction="#abrirLembretes" prefWidth="210" prefHeight="66" style="-fx-background-color: #e7f2fb; -fx-text-fill: #397caf; -fx-font-size: 15px; -fx-font-weight: bold;" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+    <Button text="Usuários / Clientes" onAction="#abrirClientes" prefWidth="210" prefHeight="66" style="-fx-background-color: #e7f2fb; -fx-text-fill: #397caf; -fx-font-size: 15px; -fx-font-weight: bold;" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <Button text="Gerenciar Logins" onAction="#abrirLogins" prefWidth="210" prefHeight="66" style="-fx-background-color: #e7f2fb; -fx-text-fill: #397caf; -fx-font-size: 15px; -fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <Button text="Ajuda e Denúncias" onAction="#abrirDenuncias" prefWidth="210" prefHeight="66" style="-fx-background-color: #e7f2fb; -fx-text-fill: #397caf; -fx-font-size: 15px; -fx-font-weight: bold;" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+    <Button text="Relatórios" onAction="#abrirRelatorios" prefWidth="210" prefHeight="66" style="-fx-background-color: #e7f2fb; -fx-text-fill: #397caf; -fx-font-size: 15px; -fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+   </children>
+  </GridPane>
+  <Button layoutX="620.0" layoutY="500.0" onAction="#sair" text="Sair" prefWidth="90" style="-fx-background-color: #777777; -fx-text-fill: white;"/>
+ </children>
+</AnchorPane>

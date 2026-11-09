@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="400" prefWidth="600" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projetodesktop.controller.ControllerRegistrarPergunta">
+ <children>
+  <Label layoutX="30" layoutY="25" text="Registro de Perguntas" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #69a8dc;"/>
+  <Label layoutX="30" layoutY="90" text="O questionário integrado está disponível no menu principal."/>
+  <Button layoutX="30" layoutY="340" onAction="#voltar" text="⬅ Voltar ao Menu"/>
+ </children>
+</AnchorPane>
