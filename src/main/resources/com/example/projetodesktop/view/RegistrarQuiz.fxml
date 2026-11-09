@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <TextField layoutX="232.0" layoutY="90.0" />
-      <RadioButton layoutX="82.0" layoutY="137.0" mnemonicParsing="false" text="RadioButton" />
-   </children>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="600" prefWidth="780" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projetodesktop.controller.ControllerQuiz">
+ <children>
+  <Label layoutX="24" layoutY="18" text="Questionário de Bem-estar" style="-fx-font-size: 23px; -fx-font-weight: bold; -fx-text-fill: #69a8dc;"/>
+  <Label layoutX="26" layoutY="58" text="Como foi sua experiência nesta semana? Selecione uma opção para cada tema."/>
+  <Label layoutX="28" layoutY="112" text="Alimentação" style="-fx-font-size: 15px; -fx-font-weight: bold;"/><ComboBox fx:id="cbAlimentacao" layoutX="330" layoutY="105" prefWidth="180" promptText="Escolha uma resposta"/>
+  <Label layoutX="28" layoutY="174" text="Hidratação" style="-fx-font-size: 15px; -fx-font-weight: bold;"/><ComboBox fx:id="cbHidratacao" layoutX="330" layoutY="167" prefWidth="180" promptText="Escolha uma resposta"/>
+  <Label layoutX="28" layoutY="236" text="Sono e descanso" style="-fx-font-size: 15px; -fx-font-weight: bold;"/><ComboBox fx:id="cbSono" layoutX="330" layoutY="229" prefWidth="180" promptText="Escolha uma resposta"/>
+  <Label layoutX="28" layoutY="298" text="Movimento e disposição" style="-fx-font-size: 15px; -fx-font-weight: bold;"/><ComboBox fx:id="cbMovimento" layoutX="330" layoutY="291" prefWidth="180" promptText="Escolha uma resposta"/>
+  <Label layoutX="28" layoutY="360" text="Rotina e autocuidado" style="-fx-font-size: 15px; -fx-font-weight: bold;"/><ComboBox fx:id="cbRotina" layoutX="330" layoutY="353" prefWidth="180" promptText="Escolha uma resposta"/>
+  <Label layoutX="28" layoutY="415" text="Escala de resposta:  🙁   😕   😐   🙂   😁" style="-fx-font-size: 17px;"/>
+  <Button layoutX="28" layoutY="460" onAction="#finalizarQuiz" text="Finalizar questionário" style="-fx-background-color: #69a8dc; -fx-text-fill: white;"/><Button layoutX="210" layoutY="460" onAction="#limpar" text="Limpar respostas"/>
+  <Label fx:id="lblResultado" layoutX="28" layoutY="510" prefWidth="720" wrapText="true" style="-fx-font-size: 14px; -fx-text-fill: #555555;"/>
+  <Label layoutX="28" layoutY="545" prefWidth="720" wrapText="true" text="Atenção: pessoas com diabetes devem seguir as orientações individualizadas da equipe de saúde. Em caso de alergias, confira os rótulos e não teste alimentos. Na doença celíaca, observe a presença de glúten e a contaminação cruzada." style="-fx-font-size: 11px; -fx-text-fill: #777777;"/>
+  <Button layoutX="28" layoutY="575" onAction="#handleVoltar" text="⬅ Voltar ao Menu"/>
+ </children>
 </AnchorPane>

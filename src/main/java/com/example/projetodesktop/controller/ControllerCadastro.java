@@ -1,119 +1,27 @@
 package com.example.projetodesktop.controller;
 
 import com.example.projetodesktop.model.GerenciadorDados;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-
-import java.io.IOException;
+import javafx.event.ActionEvent;
+import javafx.scene.control.*;
 
 public class ControllerCadastro {
-
-    @FXML private TextField Tfcadastro;
-    @FXML private PasswordField Tfsenha;
-    @FXML private TextField TfsenhaTexto;
-    @FXML private Button BtnVerSenha;
-    @FXML private PasswordField Tfconfirmarsenha;
-    @FXML private TextField TfconfirmarsenhaTexto;
-    @FXML private Button BtnVerConfirmarSenha;
-
-    private boolean senhaVisivel = false;
-    private boolean confirmarSenhaVisivel = false;
-
-    @FXML
-    private void handleToggleMostrarSenha(ActionEvent event) {
-        senhaVisivel = !senhaVisivel;
-        if (senhaVisivel) {
-            TfsenhaTexto.setText(Tfsenha.getText());
-            TfsenhaTexto.setVisible(true);
-            Tfsenha.setVisible(false);
-            BtnVerSenha.setText("🙈");
-        } else {
-            Tfsenha.setText(TfsenhaTexto.getText());
-            TfsenhaTexto.setVisible(false);
-            Tfsenha.setVisible(true);
-            BtnVerSenha.setText("👁");
-        }
+    @FXML private TextField Tfcadastro, TfsenhaTexto, TfconfirmarsenhaTexto;
+    @FXML private PasswordField Tfsenha, Tfconfirmarsenha;
+    @FXML private Button BtnVerSenha, BtnVerConfirmarSenha;
+    private boolean senhaVisivel, confirmarSenhaVisivel;
+    @FXML private void handleToggleMostrarSenha(ActionEvent e){ senhaVisivel=!senhaVisivel; alternar(Tfsenha,TfsenhaTexto,BtnVerSenha,senhaVisivel); }
+    @FXML private void handleToggleMostrarConfirmarSenha(ActionEvent e){ confirmarSenhaVisivel=!confirmarSenhaVisivel; alternar(Tfconfirmarsenha,TfconfirmarsenhaTexto,BtnVerConfirmarSenha,confirmarSenhaVisivel); }
+    private void alternar(PasswordField oculto,TextField visivel,Button botao,boolean mostrar){ if(mostrar){visivel.setText(oculto.getText());visivel.setVisible(true);visivel.setManaged(true);oculto.setVisible(false);oculto.setManaged(false);botao.setText("🙈");}else{oculto.setText(visivel.getText());oculto.setVisible(true);oculto.setManaged(true);visivel.setVisible(false);visivel.setManaged(false);botao.setText("👁");} }
+    @FXML private void handleCadastrar(ActionEvent e){
+        String usuario=Tfcadastro.getText()==null?"":Tfcadastro.getText().trim();
+        String senha=senhaVisivel?TfsenhaTexto.getText():Tfsenha.getText();
+        String confirmar=confirmarSenhaVisivel?TfconfirmarsenhaTexto.getText():Tfconfirmarsenha.getText();
+        if(usuario.isEmpty()||senha==null||senha.isBlank()||confirmar==null||confirmar.isBlank()){alerta(Alert.AlertType.WARNING,"Campos incompletos","Preencha todos os campos.");return;}
+        if(GerenciadorDados.gerenteExiste(usuario)){alerta(Alert.AlertType.WARNING,"Usuário já existe","Escolha outro login.");return;}
+        if(!senha.equals(confirmar)){alerta(Alert.AlertType.WARNING,"Senhas incompatíveis","A senha e a confirmação não coincidem.");return;}
+        GerenciadorDados.adicionarGerente(usuario,senha); alerta(Alert.AlertType.INFORMATION,"Cadastro realizado","Conta criada. Você já pode entrar."); Navegacao.abrir(e,"login.fxml");
     }
-
-    @FXML
-    private void handleToggleMostrarConfirmarSenha(ActionEvent event) {
-        confirmarSenhaVisivel = !confirmarSenhaVisivel;
-        if (confirmarSenhaVisivel) {
-            TfconfirmarsenhaTexto.setText(Tfconfirmarsenha.getText());
-            TfconfirmarsenhaTexto.setVisible(true);
-            Tfconfirmarsenha.setVisible(false);
-            BtnVerConfirmarSenha.setText("🙈");
-        } else {
-            Tfconfirmarsenha.setText(TfconfirmarsenhaTexto.getText());
-            TfconfirmarsenhaTexto.setVisible(false);
-            Tfconfirmarsenha.setVisible(true);
-            BtnVerConfirmarSenha.setText("👁");
-        }
-    }
-
-    private String getSenhaDigitada() {
-        return senhaVisivel ? TfsenhaTexto.getText() : Tfsenha.getText();
-    }
-
-    private String getConfirmarSenhaDigitada() {
-        return confirmarSenhaVisivel ? TfconfirmarsenhaTexto.getText() : Tfconfirmarsenha.getText();
-    }
-
-    @FXML
-    private void handleCadastrar(ActionEvent event) {
-        String usuario = Tfcadastro.getText();
-        String senha = getSenhaDigitada();
-        String confirmarSenha = getConfirmarSenhaDigitada();
-
-        if (usuario == null || usuario.trim().isEmpty() ||
-                senha == null || senha.trim().isEmpty() ||
-                confirmarSenha == null || confirmarSenha.trim().isEmpty()) {
-
-            exibirAlerta("Aviso", "Campos Incompletos", "Por favor, preencha todos os campos do cadastro.", Alert.AlertType.WARNING);
-            return;
-        }
-
-        if (GerenciadorDados.gerenteExiste(usuario)) {
-            exibirAlerta("Aviso", "Usuário Já Existe", "Já existe um gerente cadastrado com esse nome. Escolha outro login.", Alert.AlertType.WARNING);
-            return;
-        }
-
-        if (!senha.equals(confirmarSenha)) {
-            exibirAlerta("Aviso", "Senhas Incompatíveis", "A senha e a confirmação de senha não coincidem.", Alert.AlertType.WARNING);
-            return;
-        }
-
-        GerenciadorDados.adicionarGerente(usuario, senha);
-        exibirAlerta("Sucesso", "Cadastro Realizado", "Conta de Gerente (" + usuario + ") criada com sucesso! Você já pode realizar o login.", Alert.AlertType.INFORMATION);
-    }
-
-    @FXML
-    private void handleIrParaLogin(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projetodesktop/view/login.fxml"));
-            Parent root = loader.load();
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void exibirAlerta(String titulo, String cabecalho, String mensagem, Alert.AlertType tipo) {
-        Alert alert = new Alert(tipo);
-        alert.setTitle(titulo);
-        alert.setHeaderText(cabecalho);
-        alert.setContentText(mensagem);
-        alert.showAndWait();
-    }
+    @FXML private void handleIrParaLogin(ActionEvent e){Navegacao.abrir(e,"login.fxml");}
+    private void alerta(Alert.AlertType t,String h,String m){Alert a=new Alert(t);a.setTitle(h);a.setHeaderText(null);a.setContentText(m);a.showAndWait();}
 }

@@ -1,53 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.AreaChart?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-
-<AnchorPane prefHeight="567.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projetodesktop.controller.ControllerRelatorioUsuario">
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="590.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projetodesktop.controller.ControllerRelatorioUsuario">
     <children>
-
-        <AreaChart fx:id="customerChart" layoutX="14.0" layoutY="62.0" prefHeight="279.0" prefWidth="687.0">
+        <Label fx:id="lblNome" layoutX="20" layoutY="18" text="RELATÓRIO DE USUÁRIO" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #69a8dc;"/>
+        <AreaChart fx:id="customerChart" layoutX="20" layoutY="65" prefHeight="320" prefWidth="710">
             <xAxis>
-                <CategoryAxis label="MESES" side="BOTTOM" />
+                <CategoryAxis label="MESES"/>
             </xAxis>
             <yAxis>
-                <NumberAxis label="PESO" side="LEFT" />
+                <NumberAxis label="INDICADOR"/>
             </yAxis>
         </AreaChart>
-
-        <Text layoutX="14.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RELATORIO DE USUARIO">
-            <font>
-                <Font size="20.0" />
-            </font>
-        </Text>
-
-        <AnchorPane layoutX="501.0" layoutY="-3.0" prefHeight="61.0" prefWidth="438.0">
+        <HBox layoutX="20" layoutY="405" spacing="10">
             <children>
-                <AnchorPane layoutX="23.0" prefHeight="62.0" prefWidth="438.0" />
-            </children>
-        </AnchorPane>
-
-        <HBox layoutX="14.0" layoutY="359.0" prefHeight="100.0" prefWidth="339.0" spacing="10.0">
-            <children>
-
-                <Button fx:id="btnpeso" mnemonicParsing="false" onAction="#mostrarGraficoPeso" prefHeight="36.0" prefWidth="97.0" text="PESO" />
-                <Button fx:id="btnagua" mnemonicParsing="false" onAction="#agua" prefHeight="36.0" prefWidth="97.0" text="AGUA" />
-            <Button fx:id="BTNSONO" mnemonicParsing="false" onAction="#sono" prefHeight="36.0" prefWidth="97.0" text="SONO" />
-            <Button fx:id="btnexercicio" mnemonicParsing="false" onAction="#exercicio" prefHeight="36.0" prefWidth="97.0" text="EXERCICIO" />
+                <Button onAction="#agua" text="ÁGUA" prefWidth="100"/>
+                <Button onAction="#sono" text="SONO" prefWidth="100"/>
+                <Button onAction="#exercicio" text="MOVIMENTO" prefWidth="120"/>
             </children>
         </HBox>
-      <Label fx:id="lblMedia" layoutX="17.0" layoutY="459.0" prefHeight="62.0" prefWidth="669.0" text="Label">
-         <font>
-            <Font size="29.0" />
-         </font>
-      </Label>
-      <AnchorPane layoutX="513.0" layoutY="491.0" prefHeight="61.0" prefWidth="438.0" />
+        <Label fx:id="lblMedia" layoutX="20" layoutY="470" prefWidth="690" prefHeight="50" style="-fx-font-size: 22px;"/>
+        <Button layoutX="20" layoutY="540" onAction="#handleVoltar" text="⬅ Voltar"/>
     </children>
 </AnchorPane>

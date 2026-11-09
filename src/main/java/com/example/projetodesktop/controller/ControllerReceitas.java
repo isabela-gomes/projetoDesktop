@@ -1,83 +1,125 @@
 package com.example.projetodesktop.controller;
 
 import com.example.projetodesktop.database.BancoDeDados;
-import com.example.projetodesktop.model.Alimentos;
 import com.example.projetodesktop.model.Receita;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import java.io.File;
 
 public class ControllerReceitas {
-    @FXML
-    private TextField txtReceita;
-    @FXML
-    private TextField txtAlergicos;
-    @FXML
-    private TextField txtTabelaNutricional;
+
     @FXML
     private TextField txtNome;
-    @FXML
-    private Button btnExcluirReceita;
-    @FXML
-    private Button btnCadastrarReceita;
 
-    public void ExcluirReceita() {
-        txtAlergicos.clear();
-        txtTabelaNutricional.clear();
-        txtReceita.clear();
+    @FXML
+    private TextField txtAlergicos;
+
+    @FXML
+    private TextField txtTabelaNutricional;
+
+    @FXML
+    private TextArea txtReceita;
+
+    @FXML
+    private TableView<Receita> tabelaReceitas;
+
+    @FXML
+    private TableColumn<Receita, String> colNome;
+
+    @FXML
+    private TableColumn<Receita, String> colReceita;
+
+    @FXML
+    private TableColumn<Receita, String> colAlergicos;
+
+    @FXML
+    private Label lblArquivo;
+
+    @FXML
+    public void initialize() {
+        if (tabelaReceitas != null) {
+            colNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+            colReceita.setCellValueFactory(new PropertyValueFactory<>("receita"));
+            colAlergicos.setCellValueFactory(new PropertyValueFactory<>("alergicos"));
+            tabelaReceitas.setItems(BancoDeDados.receitas);
+        }
     }
 
+    @FXML
     public void RegistrarReceitas() {
-        String nome = txtNome.getText();
-        String descricao = txtReceita.getText();
-        String alergicos = txtAlergicos.getText();
-        String tabelaNutricional = txtTabelaNutricional.getText();
+        String nome = txtNome.getText().trim();
+        String receita = txtReceita.getText().trim();
+        String alergicos = txtAlergicos.getText().trim();
+        String tabela = txtTabelaNutricional.getText().trim();
 
-        if (nome.length() == 0 || descricao.length() == 0 || alergicos.length() == 0 || tabelaNutricional.length() == 0) {
-            exibirAlerta(Alert.AlertType.WARNING, "Aviso", "Por favor,preencha todos os campos para continuar.");
+        if (nome.isEmpty() || receita.isEmpty() || alergicos.isEmpty() || tabela.isEmpty()) {
+            alerta(Alert.AlertType.WARNING, "Aviso", "Preencha todos os campos da receita.");
             return;
         }
-        Receita receita = new Receita(nome, descricao, alergicos, tabelaNutricional);
-        BancoDeDados.receitas.add(receita);
-        exibirAlerta(Alert.AlertType.INFORMATION, "Cadastro Completo",
-                "A receita " + nome + " foi adicionada");
-        ExcluirReceita();
-    }
 
-    private void exibirAlerta(Alert.AlertType tipo, String titulo, String mensagem) {
-        Alert alert = new Alert(tipo);
-        alert.setTitle(titulo);
-        alert.setHeaderText(null);
-        alert.setContentText(mensagem);
-        alert.showAndWait();
+        Receita novaReceita = new Receita(nome, receita, alergicos, tabela);
+        BancoDeDados.receitas.add(novaReceita);
+
+        limpar();
+        alerta(Alert.AlertType.INFORMATION, "Cadastro completo", "Receita cadastrada.");
     }
 
     @FXML
-    private void selecionarArquivos(javafx.event.ActionEvent event) {
-        javafx.stage.FileChooser fileChooser = new javafx.stage.FileChooser();
-        fileChooser.setTitle("Selecione um Arquivo");
+    public void ExcluirReceita() {
+        Receita receitaSelecionada = tabelaReceitas.getSelectionModel().getSelectedItem();
 
+        if (receitaSelecionada == null) {
+            limpar();
+            return;
+        }
+
+        BancoDeDados.receitas.remove(receitaSelecionada);
+    }
+
+    @FXML
+    private void selecionarArquivos(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Selecione a imagem da receita");
         fileChooser.getExtensionFilters().add(
-                new javafx.stage.FileChooser.ExtensionFilter("Todos os Arquivos", "*.*")
+                new FileChooser.ExtensionFilter("Imagens", "*.png", "*.jpg", "*.jpeg")
         );
 
-        javafx.scene.Node componente = (javafx.scene.Node) event.getSource();
-        javafx.stage.Stage stage = (javafx.stage.Stage) componente.getScene().getWindow();
+        Node componente = (Node) event.getSource();
+        Stage janela = (Stage) componente.getScene().getWindow();
+        File arquivo = fileChooser.showOpenDialog(janela);
 
-        java.io.File arquivo = fileChooser.showOpenDialog(stage);
-
-        if (arquivo != null) {
-            System.out.println("Arquivo selecionado: " + arquivo.getAbsolutePath());
-
+        if (arquivo != null && lblArquivo != null) {
+            lblArquivo.setText(arquivo.getName());
         }
     }
-}
 
+    @FXML
+    private void handleVoltar(ActionEvent event) {
+        Navegacao.abrir(event, "menu.fxml");
+    }
+
+    private void limpar() {
+        txtNome.clear();
+        txtReceita.clear();
+        txtAlergicos.clear();
+        txtTabelaNutricional.clear();
+    }
+
+    private void alerta(Alert.AlertType tipo, String titulo, String mensagem) {
+        Alert alerta = new Alert(tipo);
+        alerta.setTitle(titulo);
+        alerta.setHeaderText(null);
+        alerta.setContentText(mensagem);
+        alerta.showAndWait();
+    }
+}

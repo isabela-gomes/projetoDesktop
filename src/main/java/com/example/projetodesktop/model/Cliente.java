@@ -2,24 +2,16 @@ package com.example.projetodesktop.model;
 
 public class Cliente {
 
-private String nome;
-private String genero;
+    private String nome;
+    private String genero;
+    private String idade;
+    private String condicaoEspecial;
 
-private String idade;
-
-private String peso;
-
-private String condicaoEspecial;
-
-    public Cliente(String nome, String genero, String idade, String peso, String condesp) {
+    public Cliente(String nome, String genero, String idade, String condicaoEspecial) {
         this.nome = nome;
         this.genero = genero;
-        this.idade = String.valueOf(idade);
-        this.peso = String.valueOf(peso);
-        this.condicaoEspecial = condesp;
-    }
-
-    public Cliente(String carlosSilva, String masculino, int i, int i1, String condesp) {
+        this.idade = idade;
+        this.condicaoEspecial = condicaoEspecial;
     }
 
     public String getNome() {
@@ -46,22 +38,11 @@ private String condicaoEspecial;
         this.idade = idade;
     }
 
-    public String getPeso() {
-        return peso;
-    }
-
-    public void setPeso(String peso) {
-        this.peso = peso;
-    }
-
-    public String getCondesp() {
+    public String getCondicaoEspecial() {
         return condicaoEspecial;
     }
 
-    public String getCondicaoEspecial() {
-        return condicaoEspecial; // ou o nome da variável que você usou para guardar a condição
+    public void setCondicaoEspecial(String condicaoEspecial) {
+        this.condicaoEspecial = condicaoEspecial;
     }
 }
-
-
-

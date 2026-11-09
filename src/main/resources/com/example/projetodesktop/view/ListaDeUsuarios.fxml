@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
-
-<AnchorPane xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projetodesktop.controller.ControllerListarClientes"> <children>
-      <AnchorPane layoutX="81.0" layoutY="70.0" prefHeight="61.0" prefWidth="438.0" />
-      <TableView fx:id="tbclientes" layoutX="14.0" layoutY="70.0" prefHeight="545.0" prefWidth="582.0">
-        <columns>
-          <TableColumn fx:id="colnome" prefWidth="131.0" text="NOME" />
-          <TableColumn fx:id="colgenero" prefWidth="81.0" text="GENERO" />
-            <TableColumn fx:id="colidade" prefWidth="65.0" text="IDADE" />
-            <TableColumn fx:id="colpeso" prefWidth="60.0" text="PESO" />
-            <TableColumn fx:id="colconesp" prefWidth="79.0" text="CON. ESP." />
-        </columns>
-      </TableView>
-      <Button fx:id="btnrelatorio" layoutX="449.0" layoutY="11.0" mnemonicParsing="false" onAction="#Relatorio" prefHeight="37.0" prefWidth="116.0" text="RELATORIO DE USUARIO" />
-      <AnchorPane layoutX="14.0" layoutY="-1.0" prefHeight="61.0" prefWidth="438.0" />
-   </children>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="560.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projetodesktop.controller.ControllerListarClientes">
+    <children>
+        <Label layoutX="24" layoutY="20" text="Usuários / Clientes" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #69a8dc;"/>
+        <TableView fx:id="tbclientes" layoutX="24" layoutY="70" prefWidth="770" prefHeight="400">
+            <columns>
+                <TableColumn fx:id="colnome" text="USUÁRIO / LOGIN" prefWidth="240"/>
+                <TableColumn fx:id="colstatus" text="STATUS" prefWidth="190"/>
+                <TableColumn fx:id="coldata" text="DATA DE CADASTRO" prefWidth="200"/>
+                <TableColumn fx:id="colidade" text="IDADE" prefWidth="120"/>
+            </columns>
+        </TableView>
+        <Button layoutX="24" layoutY="490" onAction="#Relatorio" text="RELATÓRIO DO USUÁRIO" style="-fx-background-color: #69a8dc; -fx-text-fill: white;"/>
+        <Button layoutX="240" layoutY="490" onAction="#handleVoltar" text="⬅ Voltar ao Menu"/>
+    </children>
 </AnchorPane>

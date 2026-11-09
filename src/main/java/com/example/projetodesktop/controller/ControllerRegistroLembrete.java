@@ -3,81 +3,62 @@ package com.example.projetodesktop.controller;
 import com.example.projetodesktop.database.BancoDeDados;
 import com.example.projetodesktop.model.Lembrete;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
-
-import java.util.ArrayList;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.event.ActionEvent;
 
 public class ControllerRegistroLembrete {
     @FXML
-private TextField txtitulo;
-    @FXML
-    private TextField txdescricao;
+    private TextField txtitulo, txdescricao;
     @FXML
     private ComboBox<String> combohoras;
-
+    @FXML
+    private TableView<Lembrete> tabelaLembretes;
+    @FXML
+    private TableColumn<Lembrete, String> colTitulo, colDescricao, colHorario;
 
     @FXML
     public void initialize() {
-        ArrayList<String> alternativas = new ArrayList<>();
-        alternativas.add("00:00");
-        alternativas.add("01:00");
-        alternativas.add("02:00");
-        alternativas.add("03:00");
-        alternativas.add("04:00");
-        alternativas.add("05:00");
-        alternativas.add("06:00");
-        alternativas.add("07:00");
-        alternativas.add("08:00");
-        alternativas.add("09:00");
-        alternativas.add("10:00");
-        alternativas.add("11:00");
-        alternativas.add("12:00");
-        alternativas.add("13:00");
-        alternativas.add("14:00");
-        alternativas.add("15:00");
-        alternativas.add("16:00");
-        alternativas.add("17:00");
-        alternativas.add("18:00");
-        alternativas.add("19:00");
-        alternativas.add("20:00");
-        alternativas.add("21:00");
-        alternativas.add("22:00");
-        alternativas.add("23:00");
-        combohoras.getItems().addAll(alternativas);
-        combohoras.setOnAction(event -> {
-            String selecionado= combohoras.getValue();
-        });
+        for (int h = 0; h < 24; h++) combohoras.getItems().add(String.format("%02d:00", h));
+
+            colTitulo.setCellValueFactory(new PropertyValueFactory<>("titulo"));
+            colDescricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
+            colHorario.setCellValueFactory(new PropertyValueFactory<>("horario"));
+            tabelaLembretes.setItems(BancoDeDados.lembretes);
 
     }
-    public void registrarLembrete() {
-        String titulo = txtitulo.getText();
-        String descricao= txdescricao.getText();
-        String horario = combohoras.getValue();
 
-        if (titulo.length()== 0|| descricao.length() == 0|| horario == null){
-            exibirAlerta(Alert.AlertType.WARNING, "Aviso", "Por favor,preencha todos os campos para continuar.");
+    @FXML
+    public void registrarLembrete() {
+        String t = txtitulo.getText() == null ? "" : txtitulo.getText().trim();
+        String d = txdescricao.getText() == null ? "" : txdescricao.getText().trim();
+        String h = combohoras.getValue();
+        if (t.isEmpty() || d.isEmpty() || h == null) {
+            alerta(Alert.AlertType.WARNING, "Aviso", "Preencha título, descrição e horário.");
             return;
         }
-        Lembrete lembrete = new Lembrete(titulo, descricao, horario);
-        BancoDeDados.lembretes.add(lembrete);
-        exibirAlerta(Alert.AlertType.INFORMATION, "Cadastro Completo",
-                "O cadastro da pergunta diaria foi completo");
+        BancoDeDados.lembretes.add(new Lembrete(t, d, h));
         limpar();
+        alerta(Alert.AlertType.INFORMATION, "Cadastro completo", "Lembrete registrado.");
+    }
 
-    }
-    private void exibirAlerta(Alert.AlertType tipo, String titulo, String mensagem) {
-        Alert alert = new Alert(tipo);
-        alert.setTitle(titulo);
-        alert.setHeaderText(null);
-        alert.setContentText(mensagem);
-        alert.showAndWait();
-    }
+    @FXML
     public void limpar() {
         txtitulo.clear();
         txdescricao.clear();
         combohoras.setValue(null);
     }
 
+    @FXML
+    private void handleVoltar(ActionEvent e) {
+        Navegacao.abrir(e, "menu.fxml");
+    }
+
+    private void alerta(Alert.AlertType t, String h, String m) {
+        Alert a = new Alert(t);
+        a.setTitle(h);
+        a.setHeaderText(null);
+        a.setContentText(m);
+        a.showAndWait();
+    }
 }
